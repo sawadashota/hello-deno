@@ -7,9 +7,9 @@ import { view } from "../internal/view.ts";
 const registerRoutes = (router: Router): void => {
   router.get("/", hello);
   router.get("/ipinfo/:ip", ipinfo);
-}
+};
 
-const  hello: RouterMiddleware = async ({ response }) => {
+const hello: RouterMiddleware = async ({ response }) => {
   try {
     response.body = await view("hello", { message: "Hello Deno!" });
   } catch (error) {
@@ -39,4 +39,4 @@ const ipinfo: RouterMiddleware = async ({ response, params }) => {
   }
 };
 
-export { registerRoutes }
+export { registerRoutes };
