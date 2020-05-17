@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  deno:
+    working_dir: /app
+    build: 
+      context: .
+      dockerfile: dev.dockerfile
+    environment: 
+      PORT: 8000
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/app
+    restart: on-failure
+    command: --allow-read --allow-net --allow-env /app/app.ts
